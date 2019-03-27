@@ -1,0 +1,151 @@
+<html>
+<script>
+
+var a = 1.23;
+var b = 'hello';
+var c = true;
+var d = null;
+var e = a;
+var f = undefined;
+
+var g = [];
+var h = [1,2,3];
+var i = {};
+var j = {a:1,b:2,c:3};
+var k = function() {console.log('hello');}
+
+console.log(h.length);
+console.log(h[0]);
+
+var l = new Object();
+
+//operators
+
+console.log(1 + 2);
+console.log("1" + "2");
+console.log("1" + 2);
+console.log(1 + "2");
+console.log(1 + {});
+console.log(true + true);
+console.log(1 + null);
+console.log(1 + undefined);
+console.log(1 + 2 + " hello");
+
+console.log(3 - 2);
+console.log(3 * 2);
+console.log(3 / 2);
+console.log(3 % 2);
+
+console.log(2 + 2 * 2);
+
+var m = 5;
+console.log(m++);
+console.log(m);
+console.log(++m);
+console.log(m);
+console.log(--m);
+
+
+console.log(1 == "1");
+console.log(1 === "1");
+console.log(null == null);
+console.log(undefined == undefined);
+console.log(NaN == NaN);
+console.log(-0 == 0);
+
+var arr = [1];
+var arr2 = [1];
+var arr3 = arr;
+console.log(arr == arr2);
+console.log(arr == arr3);
+
+console.log(null == undefined);
+console.log(null === undefined);
+console.log(1 == true);
+console.log(1 === true);
+console.log(0 == false);
+console.log(0 === false);
+
+console.log(1 > 1);
+console.log(1 >= 1);
+
+console.log("1" >= "2");
+
+var arr4 = [1,2,3];
+console.log(2 in arr4);
+console.log(5 in arr4);
+
+var dt = new Date();
+console.log(dt instanceof Date);
+console.log(dt instanceof Object);
+console.log(dt instanceof Number);
+console.log(dt instanceof Array);
+console.log(dt instanceof RegExp);
+console.log(5 instanceof Object);
+console.log(true instanceof Object);
+console.log("" instanceof Object);
+console.log(new Number(5) instanceof Object);
+console.log(new Boolean(true) instanceof Object);
+console.log(new String("") instanceof Object);
+console.log([] instanceof Object);
+console.log({} instanceof Object);
+console.log(null instanceof Object);
+console.log(undefined instanceof Object);
+
+console.log(true && true);
+console.log(true && "hello");
+console.log(1 && "hello");
+console.log(false && "hello");
+if(true) console.log('asdf');
+if(true && console.log('asdf'));
+
+console.log(false || true);
+console.log(false || false);
+
+console.log(!true);
+console.log(!false);
+console.log(!!true);
+
+var n = 5;
+n += 5; //n = n + 5;
+console.log(n);
+n -= 2;
+console.log(n);
+
+console.log(eval("5 + 5"));
+console.log(eval("var o = 5;"));
+
+console.log(1 == 1 ? 'hello' : 'world');
+console.log(1 != 1 ? 'hello' : 'world');
+
+console.log(typeof(1));
+console.log(typeof(true));
+console.log(typeof(""));
+console.log(typeof(new Date()));
+console.log(typeof(new Number));
+console.log(typeof(new Object));
+console.log(typeof([]));
+console.log(typeof({}));
+console.log(typeof(function() {}));
+console.log(typeof(undefined));
+console.log(typeof(null));
+
+var q = [1,2,3];
+console.log(delete q[1]);
+console.log(q[0]);
+console.log(q[1]);
+console.log(q[2]);
+
+var q = 5;
+console.log(delete q);
+console.log(q);
+
+
+
+</script>
+<body>
+
+<div id="one">hello world</div>
+
+</body>
+</html>
