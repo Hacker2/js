@@ -1,0 +1,47 @@
+<html>
+<script>
+throw new Error('hello');
+console.log('hello');
+</script>
+<script>
+try {
+    throw new Error('hello');
+} catch(e) {
+        console.log('catched error');
+}
+try {
+    throw new Error('new error');
+} finally {
+        console.log('finnaly block');
+}
+</script>
+<script>
+try {
+    throw new Error('other error');
+} catch(e) {
+        console.log('oter catched error');
+} finally {
+        console.log('other finnaly block');
+}
+
+try {
+    console.log('before error');
+    notExistingFunction(n);
+}
+catch (ex) {
+      alert(ex);
+}
+
+var i = 1;
+while(i != 3) {
+        i++;
+        try{;}
+        finally {console.log('test');}
+}
+</script>
+<body>
+
+<div id="one">hello world</div>
+
+</body>
+</html>

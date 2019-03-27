@@ -1,6 +1,6 @@
 <html>
 <script>
-
+use strict;
 ;
 {
  console.log('hello');
@@ -87,6 +87,7 @@ while(i != 5) {
         console.log(i);
         i++;
 }
+
 do {
    console.log('hello');
 } while(false);
@@ -126,6 +127,50 @@ for(var o in ob) {
         console.log(o);
         console.log(ob[o]);
 }
+
+var j = true;
+someLabel:
+//var k = 1;
+while(j) {
+    otherLabel: while(j){
+        console.log(j);
+        j = false;
+        //continue;
+        if(true)continue someLabel;
+        else continue otherLabel;
+    }
+}
+j = true;
+newLabel:
+while(j) {
+    otherLabel: while(j){
+        console.log(j);
+        //break;
+        if(true)break newLabel;
+        else break otherLabel;
+    }
+}
+
+var obj = {a:{b:{c:{d:5,e:6,f:7}}}}
+console.log(obj.a.b.c.d);
+console.log(obj.a.b.c.e);
+console.log(obj.a.b.c.f);
+with(obj.a.b.c) {
+     console.log(d);
+     console.log(e);
+     console.log(f);
+}
+var innerObj = obj.a.b.c;
+console.log(innerObj.d);
+console.log(innerObj.e);
+console.log(innerObj.f);
+with(obj.a.b.c) {
+     d = 8;
+}
+console.log(obj.a.b.c.d);
+
+if(true) debugger;
+
 
 
 
