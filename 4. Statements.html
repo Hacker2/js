@@ -6,6 +6,128 @@
  console.log('hello');
 }
 
+var a = 5;
+var b = function() {console.log('bbb');}
+b();
+c();
+function c() {
+         console.log('ccc');
+}
+c();
+function d(a) {
+         console.log(a);
+}
+d('hello world');
+
+if(1 == 1) console.log('1 = 1');
+if(1 == 1) {
+     console.log('1 = 1');
+     console.log('second condition');
+}
+if(1 != 1) {
+     console.log('1 != 1');
+}
+
+if(false) {
+          console.log('if');
+} else {
+          console.log('else');
+}
+if(true)
+        if(false) console.log('aaa');
+else console.log('bbb');
+
+if(false) {
+;
+} else if(true) {
+  console.log('else if');
+} else if(true) {
+  console.log('cccc');
+} else {}
+
+switch(3) {
+  case 1:
+       console.log(1);
+       break;
+  case 2:
+       console.log(2);
+       break;
+  case 3:
+       console.log(3);
+       break;
+  case 4:
+       console.log(4);
+       break;
+  default:
+       console.log('default');
+}
+switch(1) {
+  case 2:
+       console.log(2);
+       break;
+  case 3:
+       console.log(3);
+       break;
+  default:
+       console.log('default');
+}
+switch(2) {
+  case 1:
+       console.log(1);
+  case 2:
+       console.log(2);
+  case 3:
+       console.log(3);
+  default:
+       console.log('default');
+}
+
+var i = 1;
+while(i != 5) {
+        console.log(i);
+        i++;
+}
+do {
+   console.log('hello');
+} while(false);
+
+for(var i = 1; i != 5; i++) {
+        console.log(i);
+}
+var i = 1;
+for(; i != 5;) {
+        console.log(i);
+        i++;
+}
+var bool = true;
+for(; bool;) {
+        console.log(i);
+        bool = false;
+}
+/*for(; ;) {
+        console.log(i);
+}*/
+for(var i = 1, j = 0; i != 5 && j != 50; i++, j++, console.log('bbb')) {
+        console.log(i);
+}
+for(console.log('aaa'); true; console.log('bbb')) {
+        console.log('ccc');
+        break;
+}
+
+var arr = [3,2,undefined,1];
+for(var num in arr) {
+        console.log(num);
+        console.log(arr[num]);
+}
+
+var ob = {a:1,b:2,d:undefined,c:3};
+for(var o in ob) {
+        console.log(o);
+        console.log(ob[o]);
+}
+
+
 
 </script>
 <body>
