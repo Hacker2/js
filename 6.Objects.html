@@ -35,9 +35,37 @@ console.log(Date.prototype);
 
 var o6 = Object.create({x:1, y:2});//argument prototype object
 var o7 = Object.create(null);
-var o7 = Object.create(Object.prototype);//same as {} or new Object();
+var o8 = Object.create(Object.prototype);//same as {} or new Object();
 console.log(o6);
 console.log(o7);
+
+var ob = {a:0, b: 1}
+console.log(ob.a);
+console.log(ob['b']);
+
+var ob2 = Object.create(ob);
+console.log(ob.a);
+console.log(ob.b);
+console.log(ob.c);
+//console.log(ob.c.length);
+if(ob.c)
+        console.log(ob.c.length);
+
+var del = delete ob2.a;
+console.log(del);
+console.log(ob.a);
+console.log(ob2.a);
+
+var del = delete ob.a;
+console.log(del);
+console.log(ob.a);
+console.log(ob2.a);
+
+console.log(delete ob.c);
+console.log(delete 1);
+
+console.log(delete ob);
+console.log(delete Object.prototype);
 
 
 
