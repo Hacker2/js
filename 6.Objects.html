@@ -67,7 +67,148 @@ console.log(delete 1);
 console.log(delete ob);
 console.log(delete Object.prototype);
 
+console.log('a' in ob2)
+console.log('a' in ob)
+console.log('b' in ob2)
+console.log('b' in ob)
 
+console.log(ob.hasOwnProperty('b'))
+console.log(ob2.hasOwnProperty('b'))
+console.log(Object.prototype.hasOwnProperty("toString"));
+
+console.log(ob.propertyIsEnumerable('b'))
+console.log(ob2.propertyIsEnumerable('b'))
+console.log(Object.prototype.propertyIsEnumerable("toString"));
+
+if(ob.a != undefined)
+        console.log(ob.a);
+
+var ob3 = {a: undefined}
+console.log(ob3.a != undefined);
+console.log(ob3.b != undefined);
+console.log('a' in ob3);
+console.log('b' in ob3);
+delete ob3.a;
+console.log('a' in ob3);
+
+//enumerable
+var ob4 = {a: 1, b:2, f: function() {}}
+for(o in ob4)
+      console.log(ob4[o]);
+console.log(ob4.propertyIsEnumerable("toString"));
+console.log(ob4.propertyIsEnumerable("f"));
+ob4.c = 3;
+for(o in ob4)
+      console.log(ob4[o]);
+
+//getter setter
+var ob5 = {
+    a: 0,
+    b: 1,
+
+    get getA() {return this.a},
+    set setA(a){this.a = a},
+    get getB() {return this.b},
+}
+
+console.log(ob5.a);
+console.log(ob5.b);
+console.log(ob5.getA);
+ob5.setA = 2;
+console.log(ob5.getA);
+
+var ob6 = Object.create(ob5);
+ob6.a = 10;
+console.log(ob5.getA);
+console.log(ob6.getA);
+
+//property attributes
+var ob7 = {a:1,b:2};
+var desc = Object.getOwnPropertyDescriptor(ob7, 'a');
+for(o in desc) {
+      console.log(o);
+      console.log(desc[o]);
+}
+Object.defineProperty(ob7, 'c', {value: 3, writable: true, enumerable: true, configurable: true});
+Object.defineProperty(ob7, 'd', {value: 4, writable: false, enumerable: false, configurable: false});
+Object.defineProperty(ob7, 'e', {get: function() {return this.b}, set: function(value){this.b = value;}, enumerable: true, configurable: true});
+Object.defineProperty(ob7, 'f', {get: function() {return this.b}, enumerable: true, configurable: true});
+Object.defineProperty(ob7, 'g', {value: 5});
+Object.defineProperty(ob7, 'h', {get: function() {return this.b}});
+
+for(o in ob7) {
+      console.log(ob7[o]);
+}
+var desc2 = Object.getOwnPropertyDescriptor(ob7, 'e');
+for(o in desc2) {
+      console.log(o);
+      console.log(desc2[o]);
+}
+var desc3 = Object.getOwnPropertyDescriptor(ob7, 'f');
+for(o in desc3) {
+      console.log(o);
+      console.log(desc3[o]);
+}
+var desc4 = Object.getOwnPropertyDescriptor(ob7, 'g');
+for(o in desc4) {
+      console.log(o);
+      console.log(desc4[o]);
+}
+var desc5 = Object.getOwnPropertyDescriptor(ob7, 'h');
+for(o in desc5) {
+      console.log(o);
+      console.log(desc5[o]);
+}
+Object.defineProperty(ob7, 'f', {enumerable: false});
+//Object.defineProperty(ob7, 'd', {enumerable: true});
+//Object.defineProperty(ob7, 'd', {configurable: true});
+//Object.defineProperty(ob7, 'd', {writable: true});
+//Object.defineProperty(ob7, 'd', {value: 5});
+console.log(delete ob7.d);
+//Object.defineProperty(ob7, 'h', {enumerable: true});
+//Object.defineProperty(ob7, 'h', {configurable: true});
+//Object.defineProperty(ob7, 'h', {get: function() {return this.b}});
+//Object.defineProperty(ob7, 'h', {set: function(value) {this.b = value}});
+
+ob7.c = 5;
+ob7.d = 6;
+console.log(ob7.c);
+console.log(ob7.d);
+console.log(ob7.b);
+console.log(ob7.e);
+ob7.e = 7;
+console.log(ob7.b);
+console.log(ob7.e);
+
+var desc = Object.getOwnPropertyDescriptor(ob7, 'a');
+for(o in desc) {
+      console.log(o);
+      console.log(desc[o]);
+}
+Object.defineProperty(ob7, 'a', {enumerable: false});
+var desc = Object.getOwnPropertyDescriptor(ob7, 'a');
+for(o in desc) {
+      console.log(o);
+      console.log(desc[o]);
+}
+
+var ob8 = Object.defineProperty(ob7, 'i', {value: 7});
+console.log(ob7 == ob8);
+console.log(ob7 === ob8);
+
+Object.defineProperties(ob7, {j: {value: 3, writable: true, enumerable: true, configurable: true},
+k: {value: 3, writable: false, enumerable: false, configurable: false}});
+
+var ob9 = new Object(null, {j: {value: 3, writable: true, enumerable: true, configurable: true},
+k: {value: 3, writable: false, enumerable: false, configurable: false}});
+
+//prototype
+var obj = {a:1};
+console.log(obj.constructor.prototype);
+console.log(obj.__proto__);
+console.log(Object.prototype);
+console.log(Object.getPrototypeOf(obj));
+console.log(Object.prototype.getPrototypeOf(obj));
 
 </script>
 <body>
