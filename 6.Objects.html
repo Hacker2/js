@@ -208,7 +208,45 @@ console.log(obj.constructor.prototype);
 console.log(obj.__proto__);
 console.log(Object.prototype);
 console.log(Object.getPrototypeOf(obj));
-console.log(Object.prototype.getPrototypeOf(obj));
+console.log(Object.prototype.isPrototypeOf(obj));
+
+//extensible
+console.log(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+console.log(Object.isExtensible(obj));
+var newObj = Object.create(obj);
+
+var obj2 = {a:1};
+var objA = Object.getOwnPropertyDescriptor(obj2, 'a');
+console.log(objA.configurable);
+console.log(Object.isExtensible(obj2));
+Object.seal(obj2);
+console.log(Object.isExtensible(obj2));
+var objA2 = Object.getOwnPropertyDescriptor(obj2, 'a');
+console.log(objA2.configurable);
+console.log(Object.isSealed(obj));
+console.log(Object.isSealed(obj2));
+
+var objA3 = Object.getOwnPropertyDescriptor(obj2, 'a');
+console.log(objA3.writable);
+Object.freeze(obj2);
+var objA4 = Object.getOwnPropertyDescriptor(obj2, 'a');
+console.log(objA4.writable);
+console.log(objA4.configurable);
+console.log(Object.isExtensible(obj2));
+console.log(Object.isFrozen(obj2));
+
+//serialize
+var o = {a:1, b:{c:[false,null,"", undefined],d: function() {}, e: /ab+c/,f: TypeError}};
+var s = JSON.stringify(o);
+console.log(s);
+var p = JSON.parse(s);
+console.log(p.a);
+
+//object methods
+console.log(obj.toString());
+console.log(obj.toLocaleString());
+console.log(obj.valueOf());
 
 </script>
 <body>
