@@ -1,6 +1,49 @@
 <html>
 <script>
 
+a();
+function a() {console.log('aaa');}
+a();
+
+//b();
+var b = function() {console.log('bbb');};
+b();
+
+function c(d,e,f) {console.log(d + e + f);}
+c('h', 'e', 'llo');
+
+function d() {return 'ddd';}
+var result = d();
+console.log(result);
+
+console.log(b());
+
+var e = function(a) {
+    function f(){
+           console.log(a);
+    }
+    f();
+}
+e('fff');
+
+//invocation
+//1 dirct call
+a();
+//2 medhod
+var ob = {method: function() {console.log('method run');}};
+ob.method();
+ob['method']();
+
+var ob2 = {run: function() {this.a = 'aaa';}};
+function run() { ob2.b = 'bbb';};
+ob2.run();
+console.log(ob2.a);
+run();
+console.log(ob2.b);
+
+//3 constructor
+new Object();
+//4 inderect throw call() or apply()
 
 
 </script>
