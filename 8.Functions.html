@@ -77,6 +77,121 @@ l();
 }
 k();
 
+function m() {console.log('mmm');}
+var n = m;
+n();
+
+var ob3 = {x: function() {console.log('hello');}}
+ob3.x();
+var arr = [function() {console.log('arr function');},20];
+arr[0]();
+
+function p() {console.log('ppp');};
+function q(a) {a();};
+q(p);
+
+r.s = 'sss';
+r[0] = '000';
+function r() {console.log(r.s);console.log(r[0]);};
+r();
+
+function t() {
+         var w = 'hello';
+         u = 'uuu';
+}
+t();
+//console.log(w);
+console.log(u);
+
+(function() {console.log('hello');}());
+
+//closures
+var scope = "global scope";
+function checkscope() {
+         var scope = "local scope";
+         function f() { return scope; }
+         return f();
+}
+console.log(checkscope());
+
+function checkscope2() {
+         var scope = "local scope";
+         function f() { return scope; }
+         //scope = 'loc';
+         return f;
+}
+var chck = checkscope2();
+console.log(chck());
+
+var uniqueInteger = (function() {
+    var counter = 0;
+    return function() { return counter++; };
+}());
+console.log(uniqueInteger());
+console.log(uniqueInteger());
+
+function v() {
+         console.log(this);
+         return this;
+}
+var ts = v();
+console.log(ts);
+
+function x(a) {
+         return arguments;
+}
+var arg = x('aa','bb');
+console.log(arg.length);
+console.log(arg[0]);
+console.log(arg[1]);
+
+function y(a,b,c) {console.log('yy');}
+console.log(y.length);
+console.log(y.prototype);
+y.call();
+y.apply();
+
+function z() {
+         console.log(this.s);
+}
+var obj4 = {s: 5};
+z.call(obj4);
+z.apply(obj4);
+
+function aa(a,b) {
+         console.log(this);
+         console.log(a);
+         console.log(b);
+}
+aa.call(null, 1, 2);
+aa.apply(null, [1,2]);
+
+var obj5 = {s: 2};
+function bb() {
+         console.log(this.s);
+}
+var cc = bb.bind(obj5);
+cc();
+
+function dd(c) {
+         console.log(this.a);
+         console.log(c.b);
+}
+var ee = dd.bind({a:3}, {b:4});
+ee();
+
+console.log(dd.toString());
+
+var ff = new Function("x","y", "console.log(x + y);");
+//var ff = function(x,y) { console.log(x + y);};
+ff(1,2);
+
+function cf() {
+var scope = "local";
+return new Function("console.log(scope);");
+}
+cf()();
+
 
 </script>
 <body>
