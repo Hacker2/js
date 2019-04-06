@@ -45,6 +45,38 @@ console.log(ob2.b);
 new Object();
 //4 inderect throw call() or apply()
 
+var g = function(a,b) {
+    console.log(a);
+    console.log(b);
+    console.log(b || 'b is empty');
+}
+g('hello');
+
+var h = function(a) {
+    console.log(a);
+    console.log(arguments[0]);
+    console.log(arguments[1]);
+    console.log(arguments.length);
+}
+h('hello','world');
+
+var j = function(a, b) {
+    a = null;
+    arguments[1] = null;
+    console.log(arguments[0]);
+    console.log(b);
+}
+j('hello','world');
+
+function k() {
+function l() {
+    console.log(arguments.callee);
+    console.log(l.caller);
+}
+l();
+}
+k();
+
 
 </script>
 <body>
