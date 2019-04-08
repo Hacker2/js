@@ -1,0 +1,28 @@
+<html>
+<script>
+
+var a = {c:5,d:6}
+var b = Object.create(a);
+console.log(b.c);
+
+var car = {engine: 3.0,  run: function() {console.log('car running');}, stop: function() {console.log('car stop');}}
+var toyota = Object.create(car);
+toyota.run();
+console.log(toyota.engine);
+
+function Car() {
+         this.engine = 3.0;
+}
+Car.prototype = {run: function() {console.log('car running');}, stop: function() {console.log('car stop');}}
+
+var toyota2 = new Car();
+toyota2.run();
+console.log(toyota2.engine);
+
+</script>
+<body>
+
+<div id="one">hello world</div>
+
+</body>
+</html>
