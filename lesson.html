@@ -1,7 +1,103 @@
 <html>
 <script>
 
+function Car() {   //class
+         this.engine = 3.0;
+         this.fly = function() {console.log('fly');};
+         return 5;
+}
+Car.prototype = {run: function() {console.log('car running');}, stop: function() {console.log('car stop');}}
 
+console.log(Car());
+var toyota2 = new Car();
+toyota2.engine = 2.0;
+toyota2.jump = function(){console.log('jump');};
+var mercedes = new Car();
+console.log(toyota2.engine);
+toyota2.fly();
+toyota2.run();
+//console.log(toyota2.engine);
+
+var toyota3 = Car();
+//toyota3.run();
+//console.log(toyota3);
+
+console.log(toyota2 instanceof Car);//check if toyota inherit Car.prototype
+console.log(toyota3 instanceof Car);
+
+var F = function() {};
+var p = F.prototype;
+var c = p.constructor;
+console.log(c === F);
+
+var o = new F();
+console.log(o.constructor === F);
+
+function Car2() {}
+Car2.prototype = {constructor: Car2}
+var toyota4 = new Car2();
+
+function Car3() {console.log('qqqq');}
+Car3.prototype = {constructor: function() { console.log('wwww');}};
+new Car3();
+
+Car.prototype.break = function() {console.log('break...');};
+toyota2.break();
+
+Object.prototype.print = function(x) {console.log(x);};
+var obj = {};
+obj.print('hello');
+var hi = 'hi';
+hi.print('hi');
+var bl = true;
+bl.print('bool');
+var five = 5;
+five.print('55');
+
+console.log('hello'.constructor == String);
+var fv = 5;
+console.log(fv.constructor == Number);
+console.log(true.constructor == Boolean);
+console.log(new Date().constructor == Date);
+console.log(toyota2.constructor == Object);
+console.log(toyota2.constructor == Car);
+
+console.log(typeof toyota2['run'] == 'function' && typeof toyota2['stop'] == 'function');
+
+function Car4(x) {
+         this.engine = x;
+}
+var nisan = new Car4(3.0);
+var ford = new Car4(2.0);
+console.log(ford.engine);
+
+function Car6(value) {
+         x = value;
+         this.getX = function() {return x;};
+         this.setX = function(value) {x = value;};
+}
+var car6 = new Car6(4);
+console.log(car6.getX());
+car6.setX(5);
+console.log(car6.getX());
+console.log(car6.x);
+
+var parent = {a: 5, run: function() {console.log('hello');}};
+var sub = Object.create(parent);
+sub.run();
+console.log(sub.prototype == parent.prototype);
+//console.log(sub.prototype.constructor);
+
+function Parent() {console.log('parent');};
+Parent.prototype.run = function(){console.log('hi');}
+function Sub() {console.log('sub');};
+Sub.prototype = Parent.prototype;
+console.log(Sub.prototype == Parent.prototype);
+console.log(Sub.prototype.constructor);
+Sub.prototype.constructor = Sub;
+console.log(Sub.prototype.constructor);
+new Parent().run();
+new Sub().run();
 
 </script>
 <body>

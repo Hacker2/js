@@ -1,8 +1,52 @@
 <html>
 <script>
 
+const pi = 3.14;
+//pi = 2;
+console.log(pi);
 
+{
+var a = 5;
+let b = 10;
+console.log(b);
+}
+console.log(a);
+//console.log(b);
 
+for(var i = 0; i != 0;){}
+for(let j = 0; j != 0;){}
+console.log(i);
+//console.log(j);
+
+let [c,d] = [1,2];
+console.log(c);
+[c,d] = [c+1,d+1];
+[c,d] = [c,d];
+console.log([c,d]);
+
+function f() {
+    return [5,6];
+}
+let [e,g] = f();
+console.log(e);
+
+let [h,k] = [1];
+console.log([h,k]);
+[l,m] = [1,2,3];
+console.log([l,m]);
+[,n,,o] = [1,2,3,4];
+console.log([n,o]);
+
+let first, second, all;
+all = [first,second] = [1,2,3,4];
+console.log(first);
+console.log(second);
+console.log(all);
+
+let [one, [twoA, twoB]] = [1, [2,2.5], 3];
+console.log(one);
+console.log(twoA);
+console.log(twoB);
 
 </script>
 <body>
