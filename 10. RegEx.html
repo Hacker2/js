@@ -1,6 +1,18 @@
 <html>
 <script>
 
+var regEx = /a/;
+var regEx2 = new RegExp('a');
+var regEx3 = new RegExp('a', 'g');
+console.log('haha'.search(/h/));
+console.log('haha'.search(/a/));
+console.log('haha'.replace(/a/,'b'));
+console.log('haha'.replace(/a/g,'b'));
+console.log('haha'.match(/a/g));
+console.log('haha'.split(/a/));
+console.log(/a/.test('haha'));
+console.log(/a/.test('hh'));
+console.log(/a/.exec('haha'));
 
 
 </script>
