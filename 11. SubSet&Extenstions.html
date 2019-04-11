@@ -18,8 +18,9 @@ for(let j = 0; j != 0;){}
 console.log(i);
 //console.log(j);
 
-let [c,d] = [1,2];
+let [c,d, ee = 3] = [1,2];
 console.log(c);
+console.log(ee);
 [c,d] = [c+1,d+1];
 [c,d] = [c,d];
 console.log([c,d]);
@@ -30,8 +31,8 @@ function f() {
 let [e,g] = f();
 console.log(e);
 
-let [h,k] = [1];
-console.log([h,k]);
+let [h,k=5,tt] = [1];
+console.log([h,k,tt]);
 [l,m] = [1,2,3];
 console.log([l,m]);
 [,n,,o] = [1,2,3,4];
@@ -51,6 +52,164 @@ console.log(twoB);
 let transparent = {r:0.0, g:0.0, b:0.0, a:1.0};
 let {r:red, g:green, b:blue} = transparent;
 console.log(green);
+
+var fnc = function (v) { return v + 1; }
+var fnc2 = v => v + 1
+console.log(fnc2(5));
+
+function printA(a=5) {
+    console.log(a);
+}
+printA();
+
+function printB(a, ...b) {
+    console.log(a);
+    b.forEach(v => console.log(v));
+}
+printB(1,2,3);
+
+var params = [6,7];
+var other = [5,...params];
+printB(4, ...other);
+
+var name = 'Max';
+console.log('Name is ' + name);
+console.log(`Name is ${name}`);
+
+var x = 1, y = 2
+obj = { x: x, y: y };
+obj2 = { x, y }
+console.log(obj2.x);
+
+obj3 = { ['h' + 'o'] : 5}
+console.log(obj3.ho);
+
+obj4 = {run: function() {console.log('run');}, stop() {console.log('stop');}};
+obj4.stop();
+
+function ff([name,age]) {
+         console.log(name);
+         console.log(age);
+}
+ff('max',22);
+
+
+class Shape {
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    print() {
+        console.log(this.x);
+        console.log(this.y);
+    }
+}
+new Shape(1,2).print();
+
+class Coord extends Shape {
+    constructor (x, y, z) {
+        super(x, y)
+        this.z = z;
+    }
+    print () {
+        super.print()
+        console.log(this.z);
+    }
+}
+new Coord(1,2,3).print();
+
+class Rect {
+    static def() {
+        console.log('defff');
+    }
+}
+Rect.def();
+
+class Rectangle {
+    constructor(x) {
+        this._x = x;
+    }
+    get x () {return this._x}
+    set x (x) {this._x = x}
+}
+var r = new Rectangle(5);
+console.log(r.x);
+r.x = 6;
+console.log(r.x);
+
+console.log(Symbol("foo") !== Symbol("foo"));
+const foo = Symbol()
+const bar = Symbol()
+console.log(typeof foo === "symbol");
+console.log(typeof bar === "symbol");
+let objj = {}
+objj[foo] = "foo"
+objj[bar] = "bar"
+JSON.stringify(objj) // {}
+Object.keys(objj) // []
+Object.getOwnPropertyNames(objj) // []
+Object.getOwnPropertySymbols(objj) // [ foo, bar ]
+for(el in objj) {
+       console.log(el);
+}
+console.log(objj);
+console.log(objj[foo]);
+
+
+let s = new Set()
+s.add("hello").add("goodbye").add("hello")
+console.log(s.size === 2);
+console.log(s.has("hello") === true);
+for (let key of s.values())
+    console.log(key)
+
+
+let map = new Map()
+let sm = Symbol()
+map.set("hello", 42)
+map.set(sm, 34)
+console.log(map.get(sm) === 34);
+console.log(map.size === 2);
+for (let [ key, val ] of map.entries())
+    console.log(key.toString() + " = " + val.toString());
+
+let isMarked     = new WeakSet()
+let attachedData = new WeakMap()
+
+var dest = { quux: 0 }
+var src1 = { foo: 1, bar: 2 }
+var src2 = { foo: 3, baz: 4 }
+Object.assign(dest, src1, src2)
+console.log(dest.quux === 0);
+console.log(dest.foo  === 3);
+console.log(dest.bar  === 2);
+console.log(dest.baz  === 4);
+
+console.log([ 1, 3, 4, 2 ].find(x => x > 3));
+console.log([ 1, 3, 4, 2 ].findIndex(x => x > 3));
+
+console.log("foo".repeat(3));
+
+console.log("hello".startsWith("ello", 1));
+console.log("hello".endsWith("hell", 4));
+console.log("hello".includes("ell"));
+console.log("hello".includes("ell", 1));
+console.log("hello".includes("ell", 2));
+
+console.log(Number.isNaN(42) === false);
+console.log(Number.isNaN(NaN) === true);
+
+console.log(Number.isFinite(Infinity) === false);
+console.log(Number.isFinite(-Infinity) === false);
+console.log(Number.isFinite(NaN) === false);
+console.log(Number.isFinite(123) === true);
+
+console.log(Number.isSafeInteger(42) === true);
+console.log(Number.isSafeInteger(9007199254740992) === false);
+
+console.log(Math.trunc(42.7));
+
+
 
 </script>
 <body>
