@@ -99,6 +99,101 @@ console.log(Sub.prototype.constructor);
 new Parent().run();
 new Sub().run();
 
+function Sub2() {
+    console.log('sub2');
+    Parent.call();
+    this.run = function() {
+        console.log('overriden');
+        Parent.prototype.run.call();
+    };
+};
+Sub2.prototype = Parent.prototype;
+Sub2.prototype.constructor = Sub2;
+new Sub2().run();
+
+function Sub3() {
+    console.log('sub3');
+    this.parent = new Parent();
+    this.run = function() {
+        console.log('overriden');
+        parent.run();
+    };
+};
+new Sub3().run();
+
+function abstractRun() { throw new Error('you can run this method directly');}
+function abstractCar() {throw new Error('you can create instanse of this class'); }
+abstractCar.prototype.run = abstractRun;
+abstractCar.prototype.stop = function() {console.log('stop');}
+//abstractRun();
+//new abstractCar();
+
+function Sub4() {
+    console.log('sub 4');
+    this.run = function() {
+        console.log('overriden');
+    };
+};
+Sub4.prototype = abstractCar.prototype;
+Sub4.prototype.constructor = Sub4;
+var sub4 = new Sub4();
+sub4.stop();
+sub4.run();
+
+
+function Immutable() {
+    this.a = 5;
+    Object.defineProperty(this, 'b', {value: 3, writable: false, enumerable: true, configurable: false});
+    Object.defineProperty(this, 'c', {value: function(){console.log('hello');}, writable: false, enumerable: true, configurable: false});
+}
+var im = new Immutable();
+console.log(im.a);
+console.log(im.b);
+im.a = 6;
+im.b = 6;
+im.c();
+console.log(im.a);
+console.log(im.b);
+
+function Sub5() {
+    console.log('sub 5');
+}
+Sub5.prototype = Immutable.prototype;
+Sub5.prototype.constructor = Sub5;
+Sub5.prototype.c = function() {console.log('hi');}
+new Sub5().c();
+
+function Sub6() {
+    console.log('sub 6');
+}
+Sub6.prototype = Object.create(
+    Parent.prototype, {
+       constructor: {value: Sub6},
+       //run: {value: function() {console.log('new run');}},
+       stop: {value: function() {console.log('stop');}}
+    }
+);
+var sub6 = new Sub6();
+sub6.run();
+sub6.stop();
+
+var myModule = {}
+myModule.Parent = function() {console.log('parent from my module');}
+var prnt = new myModule.Parent();
+
+var myModule2 = (function() {
+    this.value = 5;
+    this.Parent = function() {console.log('new parent');}
+    this.Parent.prototype.getValue = function() {return value;};
+    this.Parent.prototype.setValue = function(x) {value = x;};
+    return this.Parent;
+}());
+var prnt2 = new myModule2();
+console.log(prnt2.getValue());
+prnt2.setValue(10);
+myModule2.value = 6;
+console.log(prnt2.getValue());
+
 </script>
 <body>
 hello world

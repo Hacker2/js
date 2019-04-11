@@ -1,12 +1,25 @@
 <html>
-<script>
-
-
-
-</script>
+<style>
+.hi {
+    border: solid 1px;
+}
+</style>
 <body>
 
 <div id="one">hello world</div>
 
 </body>
+<script>
+
+//window.location = "http://www.oreilly.com/";
+//window.alert('hello');
+//alert('hello2');
+//window.window.alert('hello3');
+console.log(window.document.getElementById('one'));
+console.log(document.getElementById('one'));
+var hello = document.getElementById('one');
+hello.style.color = 'red';
+hello.className = 'hi';
+
+</script>
 </html>
