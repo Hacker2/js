@@ -209,7 +209,27 @@ console.log(Number.isSafeInteger(9007199254740992) === false);
 
 console.log(Math.trunc(42.7));
 
+let ob = { a: 1 }
+Object.defineProperty(ob, "b", { value: 2 })
+ob[Symbol("c")] = 3
+console.log(Reflect.ownKeys(ob));
 
+var l10nEN = new Intl.NumberFormat("en-US")
+var l10nDE = new Intl.NumberFormat("de-DE")
+console.log(l10nEN.format(1234567.89));
+console.log(l10nDE.format(1234567.89));
+
+var l10nUSD = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" })
+var l10nGBP = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" })
+var l10nEUR = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" })
+console.log(l10nUSD.format(100200300.40));
+console.log(l10nGBP.format(100200300.40));
+console.log(l10nEUR.format(100200300.40));
+
+var l10nEN = new Intl.DateTimeFormat("en-US")
+var l10nDE = new Intl.DateTimeFormat("de-DE")
+console.log(l10nEN.format(new Date("2015-01-02")));
+console.log(l10nDE.format(new Date("2015-01-02")));
 
 </script>
 <body>
