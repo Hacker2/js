@@ -4,9 +4,19 @@
     border: solid 1px;
 }
 </style>
+<script>
+window.onload = function () {
+var div = document.getElementById('one');
+console.log(div);
+}
+</script>
 <body>
 
 <div id="one">hello world</div>
+
+<a href="javascript:console.log('aaa');">
+aaa
+</a>
 
 </body>
 <script>
@@ -20,6 +30,8 @@ console.log(document.getElementById('one'));
 var hello = document.getElementById('one');
 hello.style.color = 'red';
 hello.className = 'hi';
+hello.onclick = x => console.log(x.innerHTML);
+
 
 </script>
 </html>
