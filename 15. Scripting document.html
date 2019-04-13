@@ -1,0 +1,82 @@
+<html>
+<script>
+
+window.onload = function() {
+
+document.write('<div class="myClass" id="one" name="hello"><span id="spn">hello world</span></div>');
+
+console.log(document.head);
+console.log(document.body);
+
+var one = document.getElementById("one");
+console.log(one);
+
+var hello = document.getElementsByName("hello");
+console.log(hello);
+console.log(hello.length);
+console.log(hello[0]);
+hello.forEach(x=>console.log(x));
+document.write('<div id="one" name="hello">more name</div>');
+console.log(hello.length);
+console.log(hello[1]);
+
+var dv = document.getElementsByTagName("div");
+console.log(dv);
+console.log(dv.length);
+console.log(dv[0]);
+//dv.forEach(x=>console.log(x));
+document.write('<div id="one" name="hello">div name</div>');
+console.log(dv.length);
+console.log(dv[2]);
+
+var myClass = document.getElementsByClassName("myClass");
+console.log(myClass);
+console.log(myClass.length);
+console.log(myClass[0]);
+
+var el = document.querySelectorAll("div.myClass");
+console.log(document.querySelector("div.myClass"));
+console.log(el);
+console.log(el.length);
+console.log(el[0]);
+document.write('<div class="myClass" id="one" name="hello">hello world</div>');
+console.log(el.length);
+
+console.log(one.querySelector(".myClass"));
+console.log(one.querySelector("#spn"));
+
+console.log(document.all[3]);
+console.log(document.all["one"]);
+console.log(document.all.one);
+
+console.log(one.parentNode);
+console.log(one.childNodes);
+console.log(one.firstChild);
+console.log(one.lastChild);
+console.log(one.nextSibling);
+console.log(one.previousSibling);
+//console.log(one.nodeType);
+//console.log(one.querySelector("#spn").nodeValue);
+console.log(one.nodeName);
+console.log(one.children);
+console.log(one.firstElementChild);
+console.log(one.lastElementChild);
+console.log(one.nextElementSibling);
+console.log(one.previousElementSibling);
+console.log(one.childElementCount);
+
+console.log(one.id);
+console.log(one.name);//don't show
+console.log(one.getAttribute('id'));
+console.log(one.getAttribute('name'));
+one.setAttribute('name', 'new name');
+console.log(one.getAttribute('name'));
+
+
+}
+
+</script>
+<body>
+
+</body>
+</body>

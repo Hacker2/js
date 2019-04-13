@@ -1,12 +1,63 @@
 <html>
 <script>
 
+setTimeout(x => console.log('hello'), 1000);
+var interval = setInterval(x => console.log('world'), 1000);
+setTimeout(x => clearInterval(interval), 3000);
+
+//window.location = "13. WebBrowser.html";
+console.log(window.location);
+console.log(window.location.href);
+console.log(location.host);
+console.log(location.port);
+//location.assign("14. WindowObject.html");
+//location.replace("14. WindowObject.html");
+console.log(window.history);
+history.back();
+history.forward();
+history.go(-2);
+
+console.log(navigator);
+console.log(navigator.appName);
+console.log(navigator.appVersion);
+console.log(navigator.userAgent);
+console.log(navigator.platform);
+console.log(navigator.geolocation);
+console.log(navigator.javaEnabled());
+console.log(screen);
+console.log(screen.height);
+console.log(screen.width);
+
+//alert('hello');
+//confirm('question?');
+//var value = prompt('please enter');
+//console.log(value);
+
+window.onerror = function(msg, url, line) {
+    console.log(msg);
+    console.log(url);
+    console.log(line);
+}
+//throw new Error('test');
+
+//window.open();
+//var w = window.open('http://google.com', '_blank', 'width=400,height=350,status=yes,resizable=yes'); //“_blank”, “_parent”, or “_top”
+//console.log(w);
+//console.log(w.opener);
+//console.log(w.alert('hoho'));
+//console.log(w.close());
+//window.close();
 
 
 </script>
 <body>
 
 <div id="one">hello world</div>
+
+<script>
+var one = document.getElementById('one');
+console.log(one);
+</script>
 
 </body>
 </html>
