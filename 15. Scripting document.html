@@ -71,6 +71,17 @@ console.log(one.getAttribute('id'));
 console.log(one.getAttribute('name'));
 one.setAttribute('name', 'new name');
 console.log(one.getAttribute('name'));
+console.log(one.hasAttribute('name'));
+console.log(one.removeAttribute('name'));
+console.log(one.hasAttribute('name'));
+
+one.setAttribute('data-name', 'data name');
+var dataset = one.dataset;
+console.log(dataset.name);
+
+console.log(one.attributes[0]);
+console.log(one.attributes.id);
+console.log(one.attributes['id']);
 
 
 }
