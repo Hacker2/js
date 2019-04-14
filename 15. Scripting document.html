@@ -83,6 +83,50 @@ console.log(one.attributes[0]);
 console.log(one.attributes.id);
 console.log(one.attributes['id']);
 
+console.log(one.innerHTML);
+one.innerHTML = '<b>hello     world</b>';
+console.log(one.innerHTML);
+console.log(one.outerHTML);
+
+console.log(one.innerText);//no ff
+one.innerText = 'test';
+console.log(one.innerHTML);
+
+console.log(one.textContent);
+one.textContent = 'test';
+console.log(one.innerHTML);
+
+var textNd = document.createTextNode(" text node content");
+one.append(textNd);
+console.log(one.innerHTML);
+
+var b = document.createElement("b");
+b.append(textNd);
+one.append(b);
+console.log(one.innerHTML);
+
+var oneCopy = one.cloneNode();
+one.append(oneCopy);
+console.log(one.innerHTML);
+
+var firstAppend = document.createTextNode(" first append ");
+one.appendChild(firstAppend);
+var secondAppend = document.createTextNode(" second append ")
+one.appendChild(secondAppend);
+
+one.insertBefore(document.createTextNode(" third append "), null);
+one.insertBefore(document.createTextNode(" zero append "), firstAppend);
+
+one.append("hello");
+//one.appendChild("hello");
+
+one.removeChild(secondAppend);
+one.replaceChild(document.createTextNode(" replace "), firstAppend);
+
+var frag = document.createDocumentFragment();
+frag.appendChild(firstAppend);
+frag.appendChild(secondAppend);
+one.appendChild(frag);
 
 }
 
