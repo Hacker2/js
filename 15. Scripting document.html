@@ -128,6 +128,61 @@ frag.appendChild(firstAppend);
 frag.appendChild(secondAppend);
 one.appendChild(frag);
 
+console.log(window.pageXOfset);
+console.log(window.pageYOfset);
+
+var oneBoundaries = one.getBoundingClientRect();
+console.log(oneBoundaries.x);
+console.log(oneBoundaries.y);
+console.log(oneBoundaries.left);
+console.log(oneBoundaries.right);
+console.log(oneBoundaries.top);
+console.log(oneBoundaries.bottom);
+console.log(oneBoundaries.width);
+console.log(oneBoundaries.height);
+
+scroll(0,100);
+scrollTo(0,100);
+scrollBy(0,100);
+one.scrollIntoView();
+
+one.offsetHeight;
+one.offsetWidth;
+one.offsetParent
+/*
+offsetWidth
+offsetHeight
+offsetLeft
+offsetTop
+offsetParent
+clientWidth
+clientHeight
+clientLeft
+clientTop
+scrollWidth
+scrollHeight
+scrollLeft
+scrollTop
+*/
+
+document.write('<form><input type="text" name="inp"/><input id="bt" type="button" name="btn" value="button"></form>');
+
+console.log(document.forms[0]);
+console.log(document.forms[0].bt);
+console.log(document.forms[0].btn);
+
+//document.forms[0].submit();
+document.forms[0].reset();
+
+console.log(document.forms[0].bt.type);
+console.log(document.forms[0].bt.form);
+console.log(document.forms[0].bt.name);
+console.log(document.forms[0].bt.value);
+
+document.forms[0].onsubmit = function() { console.log('form was submitted');};
+document.forms[0].onreset = function() { console.log('form was ressetted');};
+
+
 }
 
 </script>
