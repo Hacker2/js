@@ -182,6 +182,26 @@ console.log(document.forms[0].bt.value);
 document.forms[0].onsubmit = function() { console.log('form was submitted');};
 document.forms[0].onreset = function() { console.log('form was ressetted');};
 
+console.log(document.cookie);
+console.log(document.domain);
+console.log(document.lastModified);
+console.log(document.location);
+console.log(document.referrer);
+console.log(document.title);
+console.log(document.URL);
+
+document.close();
+document.write("new");
+document.writeln("one");
+document.writeln("two");
+
+setInterval(function(x) {
+var sel = window.getSelection().toString();
+if (sel != '')
+       console.log(sel);
+}, 1000);
+
+
 
 }
 
