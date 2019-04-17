@@ -1,12 +1,71 @@
 <html>
+<style>
+.red {
+     color:red;
+}
+.border {
+     border: solid 1px black;
+}
+</style>
 <script>
 
 window.onload = function() {
+
+var dv = document.getElementById('hi');
+console.log(dv.style);
+dv.style.fontSize = '24px';
+
+console.log(window.getComputedStyle(dv, null));
+console.log(window.getComputedStyle(dv, null).left);
+console.log(window.getComputedStyle(dv, null).color);
+
+dv.className = 'red';
+dv.className = 'border';
+console.log(dv.classList);
+console.log(dv.classList[0]);
+console.log(dv.classList.length);
+dv.classList.add('red');
+console.log(dv.classList.length);
+dv.classList.remove('red');
+console.log(dv.classList.length);
+dv.classList.add('red');
+dv.classList.add('red');
+console.log(dv.classList.length);
+dv.classList.toggle('red');
+console.log(dv.classList.length);
+dv.classList.toggle('red');
+console.log(dv.classList.length);
+console.log(dv.classList.contains('red'));
+
+console.log(document.styleSheets);
+var ss = document.styleSheets[0];
+console.log(ss.disabled);
+
+console.log(ss.cssRules[0].selectorText);
+console.log(ss.cssRules[0].style);
+console.log(ss.cssRules[0].style.color);
+console.log(ss.cssRules[0].cssText);
+
+for(rule in ss.cssRules){
+        console.log(rule);
+        console.log(ss.cssRules[rule]);
+}
+
+ss.insertRule('div {font-weight: bold;}', 0);
+for(rule in ss.cssRules){
+        console.log(ss.cssRules[rule]);
+}
+ss.deleteRule(0);
+for(rule in ss.cssRules){
+        console.log(ss.cssRules[rule]);
+}
 
 }
 
 </script>
 <body>
+
+<div id="hi">hello world</div>
 
 </body>
 </body>
