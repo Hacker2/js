@@ -194,6 +194,7 @@ document.close();
 document.write("new");
 document.writeln("one");
 document.writeln("two");
+document.writeln("<div id='dv' contenteditable='true'>three</div>");
 
 setInterval(function(x) {
 var sel = window.getSelection().toString();
@@ -201,7 +202,12 @@ if (sel != '')
        console.log(sel);
 }, 1000);
 
-
+//ctro+b or +i
+document.queryCommandSupported('bold');
+document.queryCommandEnabled('bold');
+document.queryCommandState('bold');
+document.queryCommandValue('bold');
+document.execCommand("bold", false, null);
 
 }
 
