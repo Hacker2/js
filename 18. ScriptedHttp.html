@@ -3,7 +3,24 @@
 
 window.onload = function() {
 
+var request = new XMLHttpRequest();
+request.open("GET", "data.txt");
+//request.open("GET", "https://www.google.com/");
+request.setRequestHeader("Content-Type", "text/plain");
+//“GET”, “POST”, “DELETE”, “HEAD”, “OPTIONS”, “PUT”, “HTTP CONNECT”, “TRACE”, and “TRACK”
+request.send();
 
+var postRequest = new XMLHttpRequest();
+postRequest.open("POST", "data.txt");
+postRequest.send("hello");
+
+var hi = document.getElementById('hi');
+hi.onclick = function() {
+var request = new XMLHttpRequest();
+var response = request.open("GET", "data.txt");
+console.log(response);
+request.send(null);
+}
 
 }
 
