@@ -1,0 +1,82 @@
+<html>
+<script>
+
+console.log(document.readyState);
+window.onload = function() {
+console.log(document.readyState);
+
+var hi = document.getElementById('hi');
+hi.onclick = function() { console.log('hello');};
+
+hi.addEventListener('click', function() {console.log('listener');});
+hi.addEventListener('click', function() {console.log('listener2');});
+var listener3 = function() {console.log('listener3');};
+hi.addEventListener('click', listener3);
+hi.click();
+hi.removeEventListener('click', listener3);
+
+var dv = document.getElementById('dv');
+dv.addEventListener('click', function(event) {
+console.log(event);
+console.log(window.event);
+console.log(this);
+});
+
+var mouseClick = document.getElementById('mouseClick');
+mouseClick.addEventListener('click', function(event) {
+console.log(event.clientX);
+console.log(event.clientY);
+console.log(event.altKey);//altKey, ctrlKey,metaKey, and shiftKey
+});
+
+mouseClick.onmousewheel = function(event) {
+console.log(event);
+}
+
+var dr = document.getElementById('dr');
+dr.ondragstart = function(event) {
+console.log('dragStart');
+console.log(event);
+console.log(event.dataTransfer);
+}
+dr.ondragover = function(event) {
+console.log('dragStop');
+}
+dr.ondragleave = function(event) {
+console.log('ondragleave');
+}
+dr.ondragend = function(event) {
+console.log('ondragend');
+}
+
+window.onkeypress = function(event) {
+console.log(event);
+console.log(event.key);
+}
+window.onkeydown = function(event) {
+console.log(event.key);
+console.log('key down');
+}
+window.onkeyup = function(event) {
+console.log(event.key);
+console.log('key up');
+}
+
+
+}
+
+</script>
+<body>
+
+<div id="hi" onClick="console.log('hi');">hello world</div>
+<div id="dv" >click me</div>
+
+<div id="parent" onClick="console.log('parent');" ><div id="child" onClick="console.log('child');event.stopPropagation()">child</div></div>
+
+<div id="mouseClick" >click me</div>
+
+<div id="dr"  draggable="true">drag me</div>
+<div id="dz"  dropzone="true">dropzone</div>
+
+</body>
+</body>
