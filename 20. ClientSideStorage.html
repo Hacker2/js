@@ -1,0 +1,52 @@
+<html>
+<script>
+
+console.log(localStorage.age);
+localStorage.age = 18;
+console.log(localStorage.age);
+
+console.log(sessionStorage.age);
+sessionStorage.age = 18;
+console.log(sessionStorage.age);
+
+/*
+for(var name in localStorage) {
+        console.log(name);
+        console.log(localStorage[name]);
+}
+for(var name in localStorage) {
+        console.log(name);
+        console.log(sessionStorage[name]);
+} */
+
+console.log(sessionStorage.length);
+sessionStorage.setItem('new', 'hi');
+console.log(sessionStorage.getItem('new'));
+console.log(sessionStorage.length);
+sessionStorage.removeItem('new');
+console.log(sessionStorage.length);
+sessionStorage.clear();
+console.log(sessionStorage.length);
+
+localStorage.o = {x:1};
+console.log(localStorage.o.x);
+
+
+//cookies
+console.log(navigator.cookieEnabled);
+document.cookie = 'name=value;max-age=10';
+//; path=path
+//; domain=domain
+//; secure=false
+//; ; expires=Thu, 18 Dec 2019 12:00:00 UTC
+document.cookie = "username=John Doe";
+console.log(document.cookie.username);
+
+
+</script>
+<body>
+
+<div id="hi">hello world</div>
+
+</body>
+</body>
