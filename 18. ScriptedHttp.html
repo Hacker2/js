@@ -10,16 +10,38 @@ request.setRequestHeader("Content-Type", "text/plain");
 //“GET”, “POST”, “DELETE”, “HEAD”, “OPTIONS”, “PUT”, “HTTP CONNECT”, “TRACE”, and “TRACK”
 request.send();
 
+//UNSENT 0 open() has not been called yet
+//OPENED 1 open() has been called
+//HEADERS_RECEIVED 2 Headers have been received
+//LOADING 3 The response body is being received
+//DONE 4 The response is complete
+
+request.onreadystatechange = function(event) {
+console.log(event.currentTarget.readyState);
+console.log(request);
+console.log(request.status);
+console.log(request.statusText);
+console.log(request.getResponseHeader("Content-Type"));
+console.log(request.getAllResponseHeaders());
+console.log(request.responseText);
+//request.abort();
+}
+
 var postRequest = new XMLHttpRequest();
-postRequest.open("POST", "data.txt");
+postRequest.open("POST", "data.txt", false);//sync
 postRequest.send("hello");
 
-var hi = document.getElementById('hi');
-hi.onclick = function() {
 var request = new XMLHttpRequest();
-var response = request.open("GET", "data.txt");
-console.log(response);
-request.send(null);
+request.open("POST", "json.txt");
+request.setRequestHeader("Content-Type", "application/json");
+request.send(JSON.stringify({'b':2}));
+
+request.onreadystatechange = function(event) {
+if(event.currentTarget.readyState == 4) {
+console.log(request.responseText);
+var ob = JSON.parse(request.responseText);
+console.log(ob.a);
+}
 }
 
 }
