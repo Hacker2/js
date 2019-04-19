@@ -34,13 +34,16 @@ console.log(localStorage.o.x);
 
 //cookies
 console.log(navigator.cookieEnabled);
+document.cookie = "username=John Doe";
 document.cookie = 'name=value;max-age=10';
+document.cookie = 'name=value;max-age=10;path=/test;domain=developer.mozilla.org;secure=true;';
+console.log(document.cookie);
+console.log(document.cookie.split(';')[0]);
 //; path=path
 //; domain=domain
 //; secure=false
-//; ; expires=Thu, 18 Dec 2019 12:00:00 UTC
-document.cookie = "username=John Doe";
-console.log(document.cookie.username);
+//; expires=Thu, 18 Dec 2019 12:00:00 UTC
+
 
 
 </script>
