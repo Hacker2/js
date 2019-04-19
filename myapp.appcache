@@ -1,0 +1,14 @@
+CACHE MANIFEST
+myapp.html
+myapp.js
+myapp.css
+images/background.png
+
+CACHE:
+myapp.html
+myapp.css
+myapp.js
+FALLBACK:
+videos/ offline_help.html
+NETWORK:
+cgi/

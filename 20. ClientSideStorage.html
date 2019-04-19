@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE HTML>
+<html manifest="myapp.appcache">
 <script>
 
 console.log(localStorage.age);
@@ -43,14 +44,6 @@ console.log(document.cookie.split(';')[0]);
 //; domain=domain
 //; secure=false
 //; expires=Thu, 18 Dec 2019 12:00:00 UTC
-
-window.onload = function() {
-var memory = document.createElement("div");
-memory.id = "_memory";
-memory.style.display = "none";
-memory.style.behavior = "url('#default#userData')"; //magic
-document.body.appendChild(memory);
-}
 
 
 </script>
