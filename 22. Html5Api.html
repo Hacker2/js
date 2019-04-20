@@ -2,7 +2,23 @@
 <html>
 <script>
 
+window.onpopstate = function(event) {
+console.log('pop');
+console.log(event);
+}
+
 window.onload = function() {
+
+var hi = document.getElementById('hi');
+hi.innerHTML = 'asdf';
+var a = 5;
+console.log(history.hash);
+history.pushState('test', 'title');
+console.log(history.hash);
+var b = 6;
+hi.innerHTML = 'zxcv';
+history.replaceState('test', 'title');
+
 
 
 
