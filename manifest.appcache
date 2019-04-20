@@ -1,2 +1,16 @@
 CACHE MANIFEST
+# MyApp version 2
 myapp.html
+
+CACHE:
+myapp2.html
+
+#myapp.js
+#myapp.css
+#images/background.png
+
+NETWORK:
+myapp3.html
+
+FALLBACK:
+/ myapp4.html
