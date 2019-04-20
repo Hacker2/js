@@ -3,26 +3,32 @@
 <script>
 
 window.onpopstate = function(event) {
-console.log('pop');
-console.log(event);
+console.log(event.state);
+}
+var statOb = {name: 'Max', age: 22};
+history.pushState(statOb, 'title');
+
+window.onmessage = function(e) {
+console.log(e);
+}
+window.postMessage('hello', '*');
+
+/*var loader = new Worker("worker.js");
+loader.postMessage("send from original script");
+
+loader.onmessage = function(e) {
+var message = e.data;
+console.log("URL contents: " + message);
+}
+//loader.terminate();
+*/
+var bytes = new Int8Array(5);//Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array
+bytes.set([1,2,3],1);
+for(b in bytes) {
+      console.log(b);
+      console.log(bytes[b]);
 }
 
-window.onload = function() {
-
-var hi = document.getElementById('hi');
-hi.innerHTML = 'asdf';
-var a = 5;
-console.log(history.hash);
-history.pushState('test', 'title');
-console.log(history.hash);
-var b = 6;
-hi.innerHTML = 'zxcv';
-history.replaceState('test', 'title');
-
-
-
-
-}
 
 
 </script>
