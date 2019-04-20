@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<script>
+
+window.onload = function() {
+var canvas = document.getElementById('can');
+var c = canvas.getContext("2d");
+c.beginPath();
+c.moveTo(5, 5);
+c.lineTo(100, 100);
+c.lineTo(50, 100);
+c.closePath();
+//c.lineTo(5, 5);
+
+//c.scale(2,1);
+//c.lineCap = 'round';//butt, square, round, miter, bevel//don't work
+
+c.fillStyle = "#00f";
+c.strokeStyle = "green";
+c.lineWidth = 5;
+c.fill();
+c.stroke();
+//c.clip();
+
+c.globalAlpha = 0.5
+
+c.fillRect(0,0,20,20);
+c.strokeRect(0,0,20,20);
+c.clearRect(0,0,10,10);
+
+c.fillText('hello world', 100,100);
+c.shadowColor = 'red';
+c.shadowOffsetX = 2;
+c.shadowOffsetY = 2;
+c.shadowBlur = 0.5;
+c.globalAlpha = 1
+c.lineWidth = 1;
+c.strokeText('hello world',120,120)
+
+
+}
+
+
+</script>
+<body>
+
+<div id="hi">hello world</div>
+
+<canvas id="can" style="border: solid 1px black" width=300 height=200/>
+
+</body>
+</body>
