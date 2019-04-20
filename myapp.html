@@ -1,5 +1,23 @@
 <!DOCTYPE HTML>
 <html manifest="manifest.appcache">
+<script>
+window.onload = function() {
+console.log(applicationCache);
+console.log(applicationCache.status);
+console.log(applicationCache.UNCACHED);
+console.log(applicationCache.IDLE);
+console.log(applicationCache.CHECKING);
+console.log(applicationCache.DOWNLOADING);
+console.log(applicationCache.UPDATEREADY);
+console.log(applicationCache.OBSOLETE);
+console.log(navigator.onLine);
+
+applicationCache.ondownloading = function(event) {
+console.log('downloading');
+console.log(event);
+}
+}
+</script>
 <body>
 
 <div id="hi">hello world</div>
